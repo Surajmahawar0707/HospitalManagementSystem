@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<style>
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(to right, #b92b27, blue);
+}
+
+*{
+  margin:auto;
+}
+
+li {
+  float: left;
+}
+
+
+li1 {
+  float: right;
+}
+
+li2 {
+  float: right;
+}
+
+li9 {
+  float:left;
+}
+
+aa{
+  margin: 20px auto;
+}
+
+aa a{
+  color: black;
+  border:2px solid #00ff00;
+  border-radius: 60px;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li1 a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li2 a {
+  display: block;
+  color: white;
+  background-color: DeepPink;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+a:hover {
+  color:black;
+  background-color: #00ff00;
+}
+
+li a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+li a:active {
+  color:black;
+    background-color: yellow;
+}
+
+li1 a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+li2 a:hover {
+  color:black;
+  background-color: Red;
+}
+
+.card {
+  height:100%;
+  width:100%;
+  border: none
+}
+
+.tb{
+  color:white;
+}
+
+
+.box {
+  width:40%;
+  margin: 20px auto;
+    padding: 40px 40px;
+    background: #fadcdc;
+    transition: 0.25s;
+    text-align:center;
+}
+
+.box input[type="text"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid yellowgreen;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.box input[type="text"]:focus{
+    width: 50%;
+    border-color: blue
+}
+
+.aaa{
+  width:100%;
+}
+
+.hh{
+  height:fit-content;
+  width:70%;
+  margin:2px 15%;
+  border:2px solid grey;
+  float:left
+}
+
+.imge{
+  height:250px;
+  width:60%;
+  float:left;
+}
+
+.disc{
+  height:250px;
+  width:40%;
+  float:left;
+}
+
+
+.box button[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid blue;
+    padding: 14px 80px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.box button[type="submit"]:hover {
+    background: blue
+}
+
+
+</style>
+
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+
+
+<body>
+
+<ul>
+    <li><a style="border-radius:60px" class="active" th:href="@{/login_user/profile}">Profile</a></li>
+    <li><a class="active" style="border-radius:60px" th:href="@{/contact}">Contact us</a></li>
+    <li><a class="active" style="border-radius:60px" th:href="@{/about}">About us</a></li>
+    <li><a class="active" style="border-radius:60px" th:href="@{/login_user/profile/edit_profile}">Edit Profile</a></li>
+    <li2><a class="active" style="border-radius:60px" th:href="@{/logout}">Logout</a></li2>
+    <li1><a class="active" style="border-radius:60px; background-color:yellow; color: black" th:href="@{/login_user/services}">Services</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/news}">News</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_user/my_appointments}">My Appointments</a></li1>
+</ul>
+
+
+
+<div class="card">
+  <form class="box" th:action="@{/login_user/hospital_search/search_results}" th:object="${hsf}" method="post">
+
+      <h1 style="color:black">Search for Hospitals</h1>
+      <input type="text" name="hospital_name" th:field="*{hospital_name}" placeholder="Name, Pincode, District, State, Country" required/>
+
+    <button style="color:#564848e6" type="submit">Search</button>
+  </form>
+</div>
+
+
+
+<div th:if="${start == '1'}" class="aaa">
+  <h2 style="text-align:center">Search results for '<a th:text="${sf}" />'</h2>
+  <br>
+  <tr th:each="h:${h_info}">
+      <div class="hh">
+        <div class="imge">
+              <img th:src="${h.filepath}" style="height:100%"/>
+        </div>
+        <div style="text-align:center" class="disc">
+          <div style="margin-top:20px">
+            <h1 th:text="${h.name}" />
+          </div>
+          <div style="margin-top:20px">
+            <p th:text="${h.about}" />
+          </div>
+          <div style="margin-top:20px">
+            <form th:action="@{/login_user/hospital_search/search_results/home}" th:object="${exp_more}" method="post">
+              <input hidden type="number" th:value="${h.id}" name="id" />
+              <button style="padding:15px 20px; border:2px solid #00ff00; border-radius:50px" button:hover="background-color:#00ff00" type="submit">Explore More</button>
+            </form>
+          </div>
+        </div>
+      </div>
+  </tr>
+</div>
+
+<div style="text-align:center" th:if="${start == '0'}">
+  <h1 style="margin:30px auto">Empty</h1>
+</div>
+
+
+<div style="text-align:center" th:if="${start == '-1'}">
+  <h1 th:text="${sf} + ' not found'" style="margin-top:30px; margin-left:auto" />
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<style>
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.card {
+    margin-bottom: 20px;
+    border: none
+}
+
+.leftbox{
+    width:30%;
+    height:60%;
+    padding: 40px 40px;
+    margin: 40px 40px;
+    float:left;
+    text-align:center;
+    border:2px solid grey;
+}
+
+.box {
+    width: 40%;
+    height:60%;
+    padding: 40px 40px;
+    margin: 40px 40px;
+    float:right;
+    background: #191919;
+    text-align: center;
+    transition: 0.25s;
+}
+
+.box input[type="email"],
+.box input[type="number"],
+.box input[type="date"],
+.box select,
+.box input[type="text"],
+.box textarea[id="multiLineInput"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.box input[type="email"]:focus,
+.box input[type="number"]:focus,
+.box input[type="text"]:focus,
+.box textarea[id="multiLineInput"]:focus{
+    width: 50%;
+    border-color: #2ecc71
+}
+
+.box button[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 80px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.box button[type="submit"]:hover {
+    background: #2ecc71
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(to right, #b92b27, blue);
+}
+
+li {
+  float: left;
+}
+
+
+li1 {
+  float: right;
+}
+
+li2 {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li1 a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li2 a {
+  display: block;
+  color: white;
+  background-color: DeepPink;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+li a:active {
+  color:black;
+    background-color: yellow;
+}
+
+li1 a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+li2 a:hover {
+  color:black;
+  background-color: Red;
+}
+
+
+.top{
+	width:100%;
+	background-color:#2FA5EB !important;
+	border-bottom:2px solid #f0f0f0;
+}
+.top div{
+	width:1200px;
+	color:#fff;
+	background-color:#2FA5EB !important;
+	font-family:calibri;
+	padding:1px;
+	text-align:right;
+}
+
+.logo{
+	width:100%;
+	border-bottom:2px solid #f0f0f0;
+}
+.logo div{
+	width:1200px;
+	font-family:calibri;
+	padding:1px;
+	text-align:left;
+}
+.logo div table a{
+	padding:1px 10px;
+	text-decoration:none;
+	color:gray;
+}
+.logo div table a:hover{
+	color:#428bca;
+	border-bottom:2px solid gray;
+}
+
+
+
+
+</style>
+
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+    <link th:rel="stylesheet" th:href="@{assets/bootstrap-datepicker/css/bootstrap-datepicker.css}"/>
+    <link th:rel="stylesheet" th:href="@{assets/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css}"/>
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{webjars/font-awesome/5.11.2/css/all.css} "/>
+
+</head>
+
+
+
+<body>
+
+<ul>
+    <li><a style="border-radius:60px" class="active" th:href="@{/login_user/profile}">Profile</a></li>
+    <li><a class="active" style="border-radius:60px" th:href="@{/contact}">Contact us</a></li>
+    <li><a class="active" style="border-radius:60px" th:href="@{/about}">About us</a></li>
+    <li><a class="active" style="border-radius:60px" th:href="@{/login_user/profile/edit_profile}">Edit Profile</a></li>
+    <li2><a class="active" style="border-radius:60px" th:href="@{/logout}">Logout</a></li2>
+    <li1><a class="active" style="background-color:yellow; color: black; border-radius:60px" th:href="@{/login_user/services}">Services</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/news}">News</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_user/my_appointments}">My Appointments</a></li1>
+</ul>
+
+
+	<div class="top">
+		<div>
+		  <p th:text="'Contact: ' + ${h.contact} + ', Email: ' + ${h.email}"/>
+		</div>
+	</div>
+	
+	<div class="logo">
+		<div>
+			<table>
+				<tr>
+					<td style="width:60%; height:80px; font-size:30px; font-family:forte"><font color="#000"> <p th:text="${h.name}" /></font> </td>
+					<td>
+						<font size="4px"> 
+							<a th:href="@{/login_user/hospital_search/search_results/home}">HOME</a> 
+							<a th:href="@{/login_user/hospital_search/search_results/about}">ABOUT US</a>  
+							<a th:href="@{/login_user/hospital_search/search_results/services}">SERVICE</a>
+							<a style="color:#428bca; border-bottom:2px solid grey" th:href="@{/login_user/hospital_search/search_results/doctors}">DOCTORS</a> 
+							<a th:href="@{/login_user/hospital_search/search_results/contact}">CONTACT US</a>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+<tr th:if="${status != null}">
+  <p style="color:black; margin:5px auto; padding:10px 20px; background-color:yellow; width:fit-content; text-align:center">Appointment with the doctor Requested! Please wait for confirmation...</p>
+</tr>
+
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="leftbox">
+                        <img th:src="${d.filepath}" style="height:80%; border-radius:50%"/>
+                        <br>
+                        <p>Name: <a th:text="${d.name}" /></p>
+                        <p>Contact: <a th:text="${d.contact}" /></p>
+                        <p>Email: <a th:text="${d.email}" /></p>
+                    </div>
+                    <form class="box" th:action="@{/login_user/hospital_search/search_results/doctors/make_appointment/success}" th:object="${a_f}" method="post">
+                        <h1>Make An Appointment</h1>
+                        <p style="margin-left:20%"><input style="width:30%; float:left" type="text" th:field="*{fname}" placeholder="First Name"><input style="width:30%; float:left" type="text" th:field="*{lname}" placeholder="Last Name"></p>
+                        <input type="email" th:field="*{email}" placeholder="Email">
+                        <input type="number" th:field="*{contact}" placeholder="Contact">
+                        <input type="date" th:field="*{date}"/>
+                        <select th:field="*{time}">
+                        <option value="Morning" th:text="Morning" />
+                        <option value="Afternoon" th:text="Afternoon" />
+                        <option value="Evening" th:text="Evening" />
+                        <option value="Night" th:text="Night" />
+                        </select>
+                        <textarea rows="5" cols="30" th:field="*{description}" id="multiLineInput" placeholder="Enter description about appointment discussion"></textarea>
+                        <button type="submit">Make Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

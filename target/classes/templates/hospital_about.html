@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<style>
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(to right, #b92b27, blue);
+}
+
+li {
+  float: left;
+}
+
+
+li1 {
+  float: right;
+}
+
+li2 {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li1 a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li2 a {
+  display: block;
+  color: white;
+  background-color: DeepPink;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+li a:active {
+  color:black;
+    background-color: yellow;
+}
+
+li1 a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+li2 a:hover {
+  color:black;
+  background-color: Red;
+}
+
+.box{
+  width:100%;
+  height:100%;
+  padding:5px 5px;
+  margin:5px 5px;
+}
+
+
+.leftbox{
+  width:20%;
+  height:40%;
+  padding:0 0 0 0;
+  float:left;
+}
+
+.rightbox{
+  width:75%;
+  margin:0 2%;
+  height:auto;
+  float:left;
+}
+
+*{
+	margin:auto;
+	padding:auto;
+}
+.top{
+	width:100%;
+	background-color:#2FA5EB !important;
+	border-bottom:2px solid #f0f0f0;
+}
+.top div{
+	width:1200px;
+	color:#fff;
+	background-color:#2FA5EB !important;
+	font-family:calibri;
+	padding:10px;
+	text-align:right;
+}
+
+.logo{
+	width:100%;
+	border-bottom:2px solid #f0f0f0;
+}
+.logo div{
+	width:1200px;
+	font-family:calibri;
+	padding:10px;
+	text-align:left;
+}
+.logo div table a{
+	padding:10px;
+	text-decoration:none;
+	color:gray;
+}
+.logo div table a:hover{
+	color:#428bca;
+	border-bottom:2px solid gray;
+}
+
+.middle{
+  text-align:center;
+	width:100%;
+}
+.middle div{
+	width:100%;
+	height:100%;
+  text-align:center;
+	font-family:calibri;
+}
+.middle div p{
+	width:1000px;
+	font-weight:bold;
+	height:300px;
+	color:#fff;
+	opacity:0.2;
+	font-size:50px;
+}
+
+.bottom{
+	width:100%;
+	background-color:;
+	border-bottom:2px solid #f0f0f0;
+}
+.bottom div{
+	width:1200px;
+	color:#fff;
+	font-family:calibri;
+	text-align:right;
+}
+.bottom div table{
+	padding-top:30px;
+	width:1100px;
+	text-align:justify;
+	color:gray;
+	font-size:20px;
+}
+
+.bottom_up{
+	width:100%;
+	background-color:;
+	border-bottom:2px solid #f0f0f0;
+}
+.bottom_up div{
+	padding-top:20px;
+	width:1200px;
+	text-align:center;
+	background-color:;
+	font-family:forte;
+	font-size:30px;
+	padding-bottom:20px;
+}
+.bottom_up div table{
+	padding-top:30px;
+	font-size:30px;
+	width:1100px;
+	text-align:center;
+	background-color:;
+	font-family:calibri;
+	
+}
+
+input[type="text"]{
+	padding:12px;
+	width:250px;
+}
+select{
+	padding:12px;
+	width:250px;
+}
+textarea{
+	padding:50px;
+	width:550px;
+}
+button{
+	width:550px;
+	padding:10px;
+	color:#fff;
+	font-size:20px;
+	background-color:#2FA5EB !important;
+}
+
+
+.nav_down{
+	width:100%;
+	background-color:#2FA5EB !important;
+	border-bottom:2px solid #f0f0f0;
+}
+.nav_down div{
+	width:1200px;
+	color:#fff;
+	background-color:#000;
+	font-family:calibri;
+	padding:10px;
+	text-align:left;
+}
+
+
+
+</style>
+
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+
+
+<body>
+
+<ul>
+    <li><a style="border-radius:60px" class="active" th:href="@{/login_user/profile}">Profile</a></li>
+    <li><a class="active" style="border-radius:60px" th:href="@{/contact}">Contact us</a></li>
+    <li><a class="active" style="border-radius:60px" th:href="@{/about}">About us</a></li>
+    <li><a class="active" style="border-radius:60px" th:href="@{/login_user/profile/edit_profile}">Edit Profile</a></li>
+    <li2><a class="active" style="border-radius:60px" th:href="@{/logout}">Logout</a></li2>
+    <li1><a class="active" style="background-color:yellow; color: black; border-radius:60px" th:href="@{/login_user/services}">Services</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/news}">News</a></li1>
+	<li1><a class="active" style="border-radius:60px" th:href="@{/login_user/my_appointments}">My Appointments</a></li1>
+</ul>
+
+    <div class="top">
+		<div>
+		  <p th:text="'Contact: ' + ${h.contact} + ', Email: ' + ${h.email}"/>
+		</div>
+	</div>
+
+	
+	<div class="logo">
+		<div>
+			<table>
+				<tr>
+					<td width="600px" style="font-size:50px;font-family:forte;"><font color="#000"> <p th:text="${h.name}" /></font> </td>
+					<td> <br> <br>
+						<font size="4px"> 
+							<a th:href="@{/login_user/hospital_search/search_results/home}">HOME</a> 
+							<a style="color:#428bca; border-bottom:2px solid grey" th:href="@{/login_user/hospital_search/search_results/about}">ABOUT US</a>  
+							<a th:href="@{/login_user/hospital_search/search_results/services}">SERVICE</a>
+							<a th:href="@{/login_user/hospital_search/search_results/doctors}">DOCTORS</a> 
+							<a th:href="@{/login_user/hospital_search/search_results/contact}">CONTACT US</a>
+						</font>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	
+	
+	<div class="bottom">
+		<div>
+			<table border="0">
+				<tr>
+					<td width="700px">
+						<font size="10px"; color="#000"> Welcome to <a th:text="${h.name}" /> </font> <br> <br>
+
+					<font color="#000" size="6px"> Best Medical & Health care Needs to Our Patients </font> <br> <br>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat rutrum eros amet sollicitudin interdum. Suspendisse pulvinar, velit nec pharetra interdum, ante tellus ornare mi, et mollis tellus neque vitae elit. Mauris adipiscing mauris fringilla turpis interdum sed pulvinar nisi malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br><br>
+
+Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. <br><br>
+
+<br>
+ </td></tr>
+			
+				
+			</table>
+		</div>
+	</div>
+	
+	<div class="bottom">
+		<div>
+			<table border="0">
+				<tr>
+					<td width="700px">
+
+					<p style ="font-size:30px; color:#6f4d4dd1">Address: <a th:text="${h.address}" /><br>
+                    <a th:text="${h.district} + ', ' + ${h.state} + ', ' + ${h.country} + ', ' + ${h.pincode} " />
+                    </p>
+
+<br>
+ </td>
+					
+					<td style="padding:20px 20px;"> </td>
+				</tr>
+			
+				
+			</table>
+		</div>
+	</div>
+
+
+</body>
+</html>

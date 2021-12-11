@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www/thymeleaf.org">
+
+<style>
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #b92b27, blue)
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: linear-gradient(to right, #b92b27, blue);
+}
+
+li {
+  float: left;
+}
+
+
+li1 {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li1 a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+li a:active {
+  color:black;
+    background-color: yellow;
+}
+
+li1 a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+</style>
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<ul>
+    <li><a  class="active" style="border-radius:60px" th:href="@{home}">Home</a></li>
+    <li><a  class="active" style="border-radius:60px" th:href="@{contact}">Contact us</a></li>
+    <li><a style="background-color:yellow; color: black; border-radius:60px" class="active" th:href="@{about}">About us</a></li>
+    <li1><a class="active" style="border-radius:60px" th:href="@{login}">Login</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{register}">Register</a></li1>
+</ul>
+
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<style>
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #b92b27, blue)
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(to right, #b92b27, blue);
+}
+
+li {
+  float: left;
+}
+
+#box {
+	float:left;
+  height:400px;
+  width:250px;
+	padding:20px 20px;
+  border:2px solid yellow;
+  margin-top:20px;
+  margin-left:20px;
+  border-radius:20px;
+}
+
+
+li1 {
+  float: right;
+}
+
+li2 {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li1 a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li2 a {
+  display: block;
+  color: white;
+  background-color: DeepPink;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+li a:active {
+  color:black;
+    background-color: yellow;
+}
+
+li1 a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+li2 a:hover {
+  color:black;
+  background-color: Red;
+}
+
+.card {
+    margin-bottom: 20px;
+    border: none;
+}
+
+.box {
+    width: 40%;
+    padding: 40px 40px;
+    position: absolute;
+    top: 0;
+    left: 30%;
+    background: #191919;
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 100px;
+}
+
+.box input[type="email"],
+.box input[type="text"],
+.box input[type="number"],
+.box input[type="password"] {
+    border: 0;
+    background: none;
+    margin: 5px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 50%;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.box input[type="email"]:focus,
+.box input[type="number"]:focus,
+.box input[type="password"]:focus
+.box input[type="text"]:focus {
+    width: 50%;
+    border-color: #2ecc71
+}
+
+.box button[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 80px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.box button[type="submit"]:hover {
+    background: #2ecc71
+}
+
+.forgot {
+    text-decoration: underline
+}
+
+</style>
+
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+
+
+<body>
+
+<ul>
+    <li><a style="border-radius:60px" class="active" th:href="@{/login_receptionist/profile}">Profile</a></li>
+    <li><a class="active" style="background-color:yellow; color: black; border-radius:60px" th:href="@{/login_receptionist/edit_profile}">Edit Profile</a></li>
+    <li2><a class="active" style="border-radius:60px" th:href="@{/logout}">Logout</a></li2>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_receptionist/tasks}">Tasks</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/news}">News</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_receptionist/appointment_services}">Appointments</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_receptionist/operation_services}">Operations</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_receptionist/r_patients}">Patients</a></li1>
+</ul>
+
+ 
+<p style="color:white; margin:10px 30px">Hello! You are welcome, <a th:text="${r.fname}" /> <a th:text="${r.lname}" />.</p>
+<div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <form class="box" th:action="@{/login_receptionist/profile_update}" th:object="${form}" method="post">
+                        <h1>Edit Profile</h1>
+                        <a style="color:white">Name: </a><input type="text" name="fname" th:value="${r.fname}" /><br>
+                        <a style="color:white">Name: </a><input type="text" name="lname" th:value="${r.lname}" /><br>
+                        <a style="color:white">Contact: </a><input type="number" name="contact" th:value="${r.contact}" /> <br>
+                        <a style="color:white">Email: </a><input type="email" name="email" th:value="${r.email}" /> <br>
+                        <a style="color:white">Password: </a><input type="password" name="password" th:value="${cr.password}" /><br>
+                        <a style="color:white">Address: </a><input type="text" name="address" th:value="${r.address}" /><br>
+                        <a style="color:white">District: </a><input type="text" name="district" th:value="${r.district}" /><br>
+                        <a style="color:white">State: </a><input type="text" name="state" th:value="${r.state}" /><br>
+                        <a style="color:white">Country: </a><input type="text" name="country" th:value="${r.country}" /><br>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+</body>
+</html>

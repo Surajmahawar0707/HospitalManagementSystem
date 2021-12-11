@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<style>
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #b92b27, blue)
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(to right, #b92b27, blue);
+}
+
+li {
+  float: left;
+}
+
+#box {
+	float:left;
+  height:400px;
+  width:250px;
+	padding:20px 20px;
+  border:2px solid yellow;
+  margin-top:20px;
+  margin-left:20px;
+  border-radius:20px;
+}
+
+
+li1 {
+  float: right;
+}
+
+li2 {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li1 a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li2 a {
+  display: block;
+  color: white;
+  background-color: DeepPink;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+li a:active {
+  color:black;
+    background-color: yellow;
+}
+
+li1 a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+li2 a:hover {
+  color:black;
+  background-color: Red;
+}
+
+.card {
+    margin-bottom: 20px;
+    border: none;
+}
+
+.box {
+    width: 40%;
+    padding: 40px 40px;
+    position: absolute;
+    top: 0;
+    left: 30%;
+    background: #191919;
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 100px;
+}
+
+.box input[type="email"],
+.box input[type="text"],
+.box input[type="number"],
+.box input[type="password"] {
+    border: 0;
+    background: none;
+    margin: 5px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 50%;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.box input[type="email"]:focus,
+.box input[type="number"]:focus,
+.box input[type="password"]:focus
+.box input[type="text"]:focus {
+    width: 50%;
+    border-color: #2ecc71
+}
+
+.box button[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 80px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.box button[type="submit"]:hover {
+    background: #2ecc71
+}
+
+.forgot {
+    text-decoration: underline
+}
+
+</style>
+
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+
+
+<body>
+
+<ul>
+    <li><a style="border-radius:60px" class="active" th:href="@{/login_receptionist/profile}">Profile</a></li>
+    <li><a class="active" style="border-radius:60px" th:href="@{/login_receptionist/edit_profile}">Edit Profile</a></li>
+    <li2><a class="active" style="border-radius:60px" th:href="@{/logout}">Logout</a></li2>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_receptionist/tasks}">Tasks</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/news}">News</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_receptionist/appointment_services}">Appointments</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_receptionist/operation_services}">Operations</a></li1>
+    <li1><a class="active" style="background-color:yellow; color: black; border-radius:60px" th:href="@{/login_receptionist/r_patients}">Patients</a></li1>
+</ul>
+
+
+
+
+
+<h1 style="text-align:center; width:fit-content; margin:10px auto; color:white; border-bottom:3px solid white">Patients</h1>
+<a style="text-decoration:none; padding:15px 20px; border:2px solid blue; border-radius:30px; color:black; float:right; background-color:yellow" th:href="@{/login_receptionist/new_patient}">Add New Patient</a>
+<br>
+<br><br>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col" style="border:2px solid white; width:5%; color:white; padding:10px 15px">Patient Id.</th>
+      <th scope="col" style="border:2px solid white; width:10%; color:white">Patient Name</th>
+      <th scope="col" style="border:2px solid white; width:10%; color:white">Contact</th>
+      <th scope="col" style="border:2px solid white; width:10%; color:white">Email</th>
+      <th scope="col" style="border:2px solid white; width:5%; color:white">Gender</th>
+      <th scope="col" style="border:2px solid white; width:5%; color:white">Age</th>
+      <th scope="col" style="border:2px solid white; width:10%; color:white">Address</th>
+      <th scope="col" style="border:2px solid white; width:10%; color:white">Desease</th>
+      <th scope="col" style="border:2px solid white; width:5%; color:white">Room</th>
+      <th scope="col" style="border:2px solid white; width:10%; color:white">Fees</th>
+      <th scope="col" style="border:2px solid white; width:10%; color:white">In</th>
+      <th scope="col" style="border:2px solid white; width:10%; color:white">Out</th>
+      <th scope="col" style="border:2px solid white; width:5%; color:white">Doctor Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <div th:switch="${p}" >
+    <div th:case="1">
+    <tr th:each="p: ${all_p}">
+      <th scope="row" style="border:1px solid white; width:10%; color:white; padding:10px 15px" th:text="${p.id}" />
+      <td scope="row" style="border:1px solid white; width:10%; color:white; padding:10px 15px" th:text="${p.name}" />
+      <td scope="row" style="border:1px solid white; width:10%; color:white; padding:10px 15px" th:text="${p.contact}" />
+      <td scope="row" style="border:1px solid white; width:10%; color:white; padding:10px 15px" th:text="${p.email}" />
+      <td scope="row" style="border:1px solid white; width:10%; color:white; padding:10px 15px" th:text="${p.gender}" />
+      <td scope="row" style="border:1px solid white; width:40%; color:white; padding:10px 15px" th:text="${p.age}" />
+      <td scope="row" style="border:1px solid white; width:10%; color:white; padding:10px 15px" th:text="${p.address}" />
+      <td scope="row" style="border:1px solid white; width:10%; color:white; padding:10px 15px" th:text="${p.disease_description}" />
+      <td scope="row" style="border:1px solid white; width:10%; color:white; padding:10px 15px" th:text="${p.room}" />
+      <td scope="row" style="border:1px solid white; width:10%; color:white; padding:10px 15px" th:text="${p.fee_details}" />
+      <td scope="row" style="border:1px solid white; width:40%; color:white; padding:10px 15px" th:text="${p.in_time}" />
+      <td scope="row" style="border:1px solid white; width:10%; color:white; padding:10px 15px" th:text="${p.out_time}" />
+      <td scope="row" style="border:1px solid white; width:10%; color:white; padding:10px 15px" th:text="${p.did}" />
+
+    </tr>
+    </div>
+    <div th:case="0" >
+        No data available
+    </div>
+    </div>
+  </tbody>
+</table>
+
+
+
+</body>
+</html>

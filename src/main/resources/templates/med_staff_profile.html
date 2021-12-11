@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+
+body{
+    margin:0;
+    padding:0
+}
+
+#box {
+	float:left;
+  height:400px;
+  width:250px;
+	padding:20px 20px;
+  border:2px solid yellow;
+  margin-top:20px;
+  margin-left:20px;
+  border-radius:20px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(to right, #b92b27, blue);
+}
+
+li {
+  float: left;
+}
+
+
+li1 {
+  float: right;
+}
+
+li2 {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li1 a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li2 a {
+  display: block;
+  color: white;
+  background-color: DeepPink;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+li a:active {
+  color:black;
+    background-color: yellow;
+}
+
+li1 a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+li2 a:hover {
+  color:black;
+  background-color: Red;
+}
+
+
+</style>
+
+
+<body>
+
+<ul>
+    <li><a style="border-radius:60px; background-color:yellow; color:black" class="active" th:href="@{/login_medicalstaff/profile}">Profile</a></li>
+    <li><a class="active" style="border-radius:60px" th:href="@{/login_medicalstaff/edit_profile}">Edit Profile</a></li>
+    <li2><a class="active" style="border-radius:60px" th:href="@{/medstaff_logout}">Logout</a></li2>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/news}">News</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_medicalstaff/operations}">Operations</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_medical_staff/my_appointments}">My Appointments</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_medical_staff/d_patients}">My Patients</a></li1>
+</ul>
+
+<a style="color:green" th:text="${message}" />
+<div id="box">
+  <img style="border-radius:50%; width:100%" th:src="${d.filepath}" />
+
+    <p style="color:black; text-align:center">Name: <a th:text="${d.name}"></a></p>
+    <p style="color:black; text-align:center">Email: <a th:text="${d.email}"></a></p>
+
+</div>
+
+</body>
+</html>

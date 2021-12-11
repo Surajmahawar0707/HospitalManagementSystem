@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<style>
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #b92b27, blue)
+}
+
+.container{
+  display:block;
+}
+
+#boxl {
+	float:left;
+	width:250px;
+  height:300px;
+}
+
+#boxr {
+	float:right;
+	width:250px;
+  height:300px;
+}
+
+
+
+
+h1{
+	color:yellowgreen;
+	text-align:center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: linear-gradient(to right, #b92b27, blue);
+}
+
+li {
+  float: left;
+}
+
+
+li1 {
+  float: right;
+}
+
+li2 {
+  float: right;
+}
+
+.l{
+  text-decoration: none;
+  color: white;
+  background-color: blue;
+  padding: 15px 17px;
+  display: block;
+  overflow: hidden;
+  border-radius: 60px;
+}
+
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li1 a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li2 a {
+  display: block;
+  color: white;
+  background-color: DeepPink;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+a{
+  color:white;
+  text-decoration:none;
+  padding:15px 20px;
+}
+
+a:hover{
+  color:black;
+  background-color: Aqua;
+}
+
+li a:hover {
+  color:black;
+  background-color: yellow;
+}
+
+li a:active {
+  color:black;
+  background-color: yellow;
+}
+
+li1 a:hover {
+  color:black;
+  background-color: yellow;
+}
+
+li2 a:hover {
+  color:black;
+  background-color: Red;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+</style>
+
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<ul>
+    <li><a style="border-radius:60px" class="active" th:href="@{/login_user/profile}">Profile</a></li>
+    <li><a class="active" style="border-radius:60px" th:href="@{/contact}">Contact us</a></li>
+    <li><a class="active" style="border-radius:60px" th:href="@{/about}">About us</a></li>
+    <li><a class="active" style="border-radius:60px" th:href="@{/login_user/profile/edit_profile}">Edit Profile</a></li>
+    <li2><a class="active" style="border-radius:60px" th:href="@{/logout}">Logout</a></li2>
+    <li1><a class="active" style="background-color:yellow; color: black; border-radius:60px" th:href="@{/login_user/services}">Services</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/news}">News</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_user/my_appointments}">My Appointments</a></li1>
+</ul>
+
+
+
+<div class="row" style="align-items:center">
+  <div style="width:300px; padding:20px 20px">
+    <img style="width:130%" th:src="@{/hospital.png}" />
+  </div>
+  <div style="width:50%">
+    <a style="margin-left:80px; border:2px solid skyblue; border-radius:60px" th:href="@{/login_user/hospital_search}">Explore Hospitals</a>
+  </div>
+</div>
+
+<div class="row" style="align-items:center">
+  <div style="margin-left:50px;width:300px; padding:20px 20px">
+    <img style="border-radius:50%; width:100%" th:src="@{/doctor.jpg}" />
+  </div>
+  <div style="width:50%; margin-left:-50px">
+    <a style="margin-left:80px; border:2px solid skyblue; border-radius:60px" th:href="@{/login_user/doctor_services}">Explore Doctors</a>
+  </div>
+</div>
+
+
+
+</body>
+</html>

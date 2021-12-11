@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<style>
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #b92b27, blue)
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(to right, #b92b27, blue);
+}
+
+li {
+  float: left;
+}
+
+#box {
+	float:left;
+  height:400px;
+  width:250px;
+	padding:20px 20px;
+  border:2px solid yellow;
+  margin-top:20px;
+  margin-left:20px;
+  border-radius:20px;
+}
+
+
+li1 {
+  float: right;
+}
+
+li2 {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li1 a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li2 a {
+  display: block;
+  color: white;
+  background-color: DeepPink;
+  text-align: center;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+li a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+li a:active {
+  color:black;
+    background-color: yellow;
+}
+
+li1 a:hover {
+    color:black;
+  background-color: yellow;
+}
+
+li2 a:hover {
+  color:black;
+  background-color: Red;
+}
+
+.b{
+  background-color:white;
+  border:none;
+  color:black;
+  border-radius:30px;
+  float:right;
+  padding:15px 20px;
+}
+
+.b:hover{
+  font-size:23px;
+    transaction:2s;
+}
+
+</style>
+
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+
+
+<body>
+
+<ul>
+    <li><a style="border-radius:60px" class="active" th:href="@{/login_receptionist/profile}">Profile</a></li>
+    <li><a class="active" style="border-radius:60px" th:href="@{/login_receptionist/edit_profile}">Edit Profile</a></li>
+    <li2><a class="active" style="border-radius:60px" th:href="@{/logout}">Logout</a></li2>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_receptionist/tasks}">Tasks</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/news}">News</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_receptionist/appointment_services}">Appointments</a></li1>
+    <li1><a class="active" style="background-color:yellow; color: black; border-radius:60px" th:href="@{/login_receptionist/operation_services}">Operations</a></li1>
+    <li1><a class="active" style="border-radius:60px" th:href="@{/login_receptionist/r_patients}">Patients</a></li1>
+</ul>
+
+<h1 style="text-align:center; width:fit-content; margin:10px auto; color:white; border-bottom:3px solid white">Operations</h1>
+
+<br><br>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col" style="border:2px solid white; width:10%; color:white; padding:10px 15px">Operation Id.</th>
+      <th scope="col" style="border:2px solid white; width:10%; color:white">Patient Name</th>
+      <th scope="col" style="border:2px solid white; width:10%; color:white">Date</th>
+      <th scope="col" style="border:2px solid white; width:10%; color:white">Time</th>
+      <th scope="col" style="border:2px solid white; width:15%; color:white">Operation Type</th>
+      <th scope="col" style="border:2px solid white; width:15%; color:white">Operation Theatre</th>
+      <th scope="col" style="border:2px solid white; width:30%; color:white">Operation Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <div th:switch="${p}" >
+    <div th:case="1">
+    <tr th:each="op: ${all_op}">
+      <td scope="row" style="border:1px solid white; width:10%; color:white; padding:10px 15px" th:text="${op?.id}" />
+      <td scope="row" style="border:1px solid white; width:10%; color:white; padding:10px 15px" th:text="${op?.patient_name}" />
+      <td scope="row" style="border:1px solid white; width:10%; color:white; padding:10px 15px" th:text="${op?.date}" />
+      <td scope="row" style="border:1px solid white; width:10%; color:white; padding:10px 15px" th:text="${op?.time}" />
+      <td scope="row" style="border:1px solid white; width:15%; color:white; padding:10px 15px" th:text="${op?.operation_type}" />
+      <td scope="row" style="border:1px solid white; width:15%; color:white; padding:10px 15px" th:text="${op?.operation_theatre}" />
+      <td scope="row" style="border:1px solid white; width:30%; color:white; padding:10px 15px" th:text="${op?.operation_details}" />
+
+    </tr>
+    </div>
+    <div th:case="0" >
+        No data available
+    </div>
+    </div>
+  </tbody>
+</table>
+
+</body>
+</html>
